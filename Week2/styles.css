@@ -1,204 +1,271 @@
 
-/* General Settings */
+/* GENERAL DESIGN */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Body */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f9;
-    color: #333;
-    line-height: 1.6;
+    background: #eef2f7;
+    color: #26344a;
 }
 
-/* Main Header */
-body > header {
-    background-color: #006633;
+/* MAIN CONTAINER */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 35px auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    padding: 25px 35px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* LOGO */
+.logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #123d6a;
     color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-right: 20px;
+    border: 3px solid #d4a62a;
+}
+
+/* SCHOOL NAME */
+.school-name {
+    font-size: 23px;
+    color: #123d6a;
     font-weight: bold;
 }
 
-/* Navigation */
+/* NAVIGATION BAR */
 nav {
-    background-color: #004d26;
-    padding: 12px 30px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    padding: 20px;
+    background: #123d6a;
+    border-bottom: 4px solid #d4a62a;
 }
 
 nav a {
-    color: white;
     text-decoration: none;
-    font-weight: bold;
-    padding: 8px 15px;
-}
-
-nav a:hover {
-    background-color: #ffffff;
-    color: #006633;
-    border-radius: 5px;
-}
-
-/* Main Container */
-.container {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 20px;
-}
-
-/* Main Title */
-.container > h1 {
-    text-align: center;
-    color: #006633;
-    margin-bottom: 25px;
-}
-
-/* Flexbox Layout */
-.content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 30px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Inner Header / Logo Section */
-.content-wrapper > .header {
-    flex: 1;
-    background-color: #006633;
     color: white;
-    padding: 30px 20px;
-    border-radius: 10px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.header img {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-.header h1 {
-    font-size: 23px;
-    margin-bottom: 10px;
-}
-
-.header p {
-    font-size: 18px;
-}
-
-/* Notice Form Section */
-.notice-content {
-    flex: 1;
-    padding: 25px;
-    background-color: #f9fafb;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-}
-
-.notice-content h2 {
-    color: #006633;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
     font-weight: bold;
-    margin-bottom: 5px;
-}
-
-form input,
-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 18px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
     font-size: 15px;
-    font-family: Arial, sans-serif;
-}
-
-form input:focus,
-form textarea:focus {
-    outline: none;
-    border-color: #006633;
-    box-shadow: 0 0 5px rgba(0, 102, 51, 0.3);
-}
-
-form textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-/* Submit Button */
-form button {
-    background-color: #006633;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
     transition: 0.3s;
 }
 
-form button:hover {
-    background-color: #004d26;
+nav a:hover {
+    color: #ffd45c;
+    transform: translateY(-2px);
 }
 
-/* Footer */
-footer {
-    background-color: #004d26;
+/* CONTENT AREA */
+.content {
+    display: flex;
+    min-height: 400px;
+}
+
+/* CAMPUS NOTICE */
+.campus-notice {
+    width: 50%;
+    padding: 35px 30px;
+    border-right: 1px solid #e5e5e5;
+    background: #ffffff;
+}
+
+.campus-notice h2 {
+    margin-bottom: 25px;
+    color: #123d6a;
+    font-size: 25px;
+    border-left: 5px solid #d4a62a;
+    padding-left: 12px;
+}
+
+/* IMAGE CONTAINER */
+.image-container {
+    display: flex;
+    gap: 15px;
+}
+
+.image-container img {
+    width: 32%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* POST NOTICE */
+.post-notice {
+    width: 50%;
+    padding: 35px 30px;
+    background: #f8faff;
+}
+
+/* FORM GROUP */
+.form-group {
+    margin-bottom: 23px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #123d6a;
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccd5e0;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #123d6a;
+    box-shadow: 0 0 7px rgba(18,61,106,0.15);
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* POST BUTTON */
+button {
+    background: #123d6a;
     color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d4a62a;
+    color: #123d6a;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
     text-align: center;
-    padding: 18px;
-    margin-top: 30px;
+    padding: 30px;
+    background: #123d6a;
+    border-top: 4px solid #d4a62a;
+    color: white;
+    font-size: 22px;
     font-weight: bold;
 }
 
-/* Responsive Design */
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
 
-    .content-wrapper {
+    .container {
+        width: 95%;
+    }
+
+    .content {
         flex-direction: column;
     }
 
-    .header h1 {
-        font-size: 20px;
+    .campus-notice,
+    .post-notice {
+        width: 100%;
     }
 
-    body > header {
-        font-size: 19px;
+    .campus-notice {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .image-container img {
+        height: 120px;
     }
 
     nav {
-        justify-content: center;
+        gap: 20px;
     }
 
-    .container {
-        margin: 15px auto;
-        padding: 15px;
+    nav a {
+        font-size: 13px;
+    }
+
+    .school-name {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 18px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .school-name {
+        font-size: 14px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .image-container {
+        gap: 8px;
+    }
+
+    .image-container img {
+        height: 95px;
+    }
+
+    .campus-notice,
+    .post-notice {
+        padding: 22px 15px;
     }
 }
