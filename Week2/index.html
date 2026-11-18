@@ -1,109 +1,365 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid Layout</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        .container {
-            display: grid;
-            grid-template-areas:
-                "header header"
-                "header1 header1"
-                "menu content"
-                "footer footer";
-            grid-template-columns: 2fr 4fr;
-            gap: 3px;
-            background-color: dodgerblue;
-            padding: 5px;
-        }
+<title>DMMMSU Campus Notice Portal</title>
 
-        .container div {
-            padding: 10px;
-        }
+<style>
 
-        /* Header */
-        .container div.header {
-            grid-area: header;
-            text-align: center;
-            background-color: navy;
-            color: white;
-        }
+/* GENERAL DESIGN */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
 
-        /* Second Header */
-        .container div.header1 {
-            grid-area: header1;
-            text-align: center;
-            background-color: skyblue;
-            color: black;
-        }
+body {
+    background: #eef2f7;
+    color: #26344a;
+}
 
-        /* Menu */
-        .container div.menu {
-            grid-area: menu;
-            background-color: lightyellow;
-            color: darkblue;
-        }
+/* MAIN CONTAINER */
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 35px auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
 
-        .menu a {
-            color: darkblue;
-            text-decoration: none;
-            line-height: 2;
-        }
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    padding: 25px 35px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+}
 
-        .menu a:hover {
-            color: red;
-        }
+/* LOGO */
+.logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #123d6a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-right: 20px;
+    border: 3px solid #d4a62a;
+}
 
-        /* Content */
-        .container div.content {
-            grid-area: content;
-            background-color: lightgreen;
-            color: darkgreen;
-        }
+/* SCHOOL NAME */
+.school-name {
+    font-size: 22px;
+    color: #123d6a;
+    font-weight: bold;
+}
 
-        /* Footer */
-        .container div.footer {
-            grid-area: footer;
-            text-align: center;
-            background-color: darkslategray;
-            color: white;
-        }
-    </style>
+/* NAVIGATION BAR */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    padding: 20px;
+    background: #123d6a;
+    border-bottom: 4px solid #d4a62a;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffd45c;
+}
+
+/* CONTENT AREA */
+.content {
+    display: flex;
+    min-height: 420px;
+}
+
+/* CAMPUS NOTICE */
+.campus-notice {
+    width: 50%;
+    padding: 35px 30px;
+    border-right: 1px solid #e5e5e5;
+    background: white;
+}
+
+.campus-notice h2 {
+    margin-bottom: 30px;
+    color: #123d6a;
+    font-size: 25px;
+    border-left: 5px solid #d4a62a;
+    padding-left: 12px;
+}
+
+/* IMAGE CONTAINER */
+.image-container {
+    display: flex;
+    gap: 15px;
+}
+
+.image-container img {
+    width: 32%;
+    height: 160px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.image-container img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* POST NOTICE FORM */
+.post-notice {
+    width: 50%;
+    padding: 35px 30px;
+    background: #f8faff;
+}
+
+.form-group {
+    margin-bottom: 23px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #123d6a;
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccd5e0;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #123d6a;
+    box-shadow: 0 0 7px rgba(18,61,106,0.15);
+}
+
+.form-group textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+/* POST BUTTON */
+button {
+    background: #123d6a;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d4a62a;
+    color: #123d6a;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #123d6a;
+    border-top: 4px solid #d4a62a;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .campus-notice,
+    .post-notice {
+        width: 100%;
+    }
+
+    .campus-notice {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .image-container img {
+        height: 120px;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .school-name {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 18px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .school-name {
+        font-size: 14px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .image-container {
+        gap: 8px;
+    }
+
+    .image-container img {
+        height: 100px;
+    }
+
+    .campus-notice,
+    .post-notice {
+        padding: 22px 15px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="header">
-            <h1>My Header</h1>
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">DM</div>
+
+        <div class="school-name">
+            Don Mariano Marcos Memorial State University
         </div>
 
-        <div class="header1">
-            <h2>My Header</h2>
-        </div>
+    </header>
 
-        <div class="menu">
-            <h3>Menu</h3>
-            <a href="#">Link 1</a><br>
-            <a href="#">Link 2</a><br>
-            <a href="#">Link 3</a>
-        </div>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">CONTACT US</a>
+    </nav>
 
-        <div class="content">
-            <h2>Content</h2>
-            <p>This is the content section.</p>
-        </div>
+    <!-- MAIN CONTENT -->
+    <div class="content">
 
-        <div class="footer">
-            <h3>My Footer</h3>
-        </div>
+        <!-- LEFT SIDE: CAMPUS NOTICE -->
+        <section class="campus-notice">
+
+            <h2>Campus Notice</h2>
+
+            <div class="image-container">
+
+                <img src="image1.jpg" alt="Campus Notice 1">
+
+                <img src="image2.jpg" alt="Campus Notice 2">
+
+                <img src="image3.jpg" alt="Campus Notice 3">
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT SIDE: POST NOTICE -->
+        <section class="post-notice">
+
+            <form>
+
+                <div class="form-group">
+
+                    <label for="title">Title:</label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Enter notice title"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="message">Message:</label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Write your notice here..."
+                    ></textarea>
+
+                </div>
+
+                <button type="submit">Post Notice</button>
+
+            </form>
+
+        </section>
 
     </div>
+
+    <!-- FOOTER -->
+    <footer>
+        College of Computer Science
+    </footer>
+
+</div>
 
 </body>
 </html>
